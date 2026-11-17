@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AML Lab — presenter’s practice sheet</title>
+<style>
+@font-face{font-family:"Instrument Serif";font-weight:400;src:url(fonts/InstrumentSerif-Regular.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;src:url(fonts/InstrumentSerif-Italic.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:400;src:url(fonts/InstrumentSans-400.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:500;src:url(fonts/InstrumentSans-500.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:600;src:url(fonts/InstrumentSans-600.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400;src:url(fonts/JetBrainsMono-Regular.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:500;src:url(fonts/JetBrainsMono-Medium.woff2) format("woff2")}
+:root{--ink:#1b1814;--mut:#6b6457;--line:#d9d2c3;--acc:#9a6f1f;--paper:#fbf8f2;--sans:"Instrument Sans","JetBrains Mono",sans-serif;--serif:"Instrument Serif","JetBrains Mono",serif;--mono:"JetBrains Mono",monospace}
+*{box-sizing:border-box}
+html{background:#e9e4d8}
+body{margin:0;font:400 9.6pt/1.42 var(--sans);color:var(--ink)}
+.sheet{width:210mm;min-height:297mm;margin:10mm auto;background:var(--paper);padding:13mm 14mm 11mm;box-shadow:0 2px 24px #0002;position:relative}
+.sheet+.sheet{break-before:page}
+@page{size:A4;margin:0}
+@media print{html{background:none}.sheet{margin:0;box-shadow:none;width:210mm;height:297mm;overflow:hidden}}
+h1{font:400 30pt/1 var(--serif);letter-spacing:-.01em;margin:0}
+h1 em{color:var(--acc)}
+h2{font:500 7.6pt/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin:15px 0 7px;display:flex;gap:10px;align-items:center}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1.5px solid var(--ink);padding-bottom:9px}
+.top .meta{font:500 7.6pt/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);text-align:right}
+.pitch{font:italic 400 13pt/1.35 var(--serif);margin:11px 0 0;max-width:150mm}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+ul.chk{list-style:none;margin:0;padding:0}
+ul.chk li{padding:3px 0 3px 19px;position:relative;border-bottom:1px solid var(--line)}
+ul.chk li::before{content:"";position:absolute;left:0;top:5px;width:10px;height:10px;border:1px solid var(--ink);border-radius:2px}
+table{width:100%;border-collapse:collapse}
+th{font:500 6.8pt/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);text-align:left;padding:0 6px 5px 0;border-bottom:1px solid var(--ink)}
+td{vertical-align:top;padding:6px 8px 6px 0;border-bottom:1px solid var(--line)}
+td.t{font:500 8pt/1.3 var(--mono);color:var(--acc);white-space:nowrap;width:15mm}
+td.p{width:31mm}
+td.p b{display:block;font:400 11pt/1.1 var(--serif)}
+td.p span{font:500 6.6pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.do{font-family:var(--mono);font-size:7.6pt;line-height:1.5}
+.say{font-style:italic}
+.see{color:var(--mut)}
+b.k{font-weight:600}
+code{font:400 .86em var(--mono);background:#efe9db;padding:0 3px;border-radius:2px}
+.q{padding:5px 0;border-bottom:1px solid var(--line)}
+.q b{display:block;font:400 10.6pt/1.2 var(--serif)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 14px}
+.nums div{border-top:1px solid var(--ink);padding-top:4px}
+.nums strong{display:block;font:400 18pt/1 var(--serif)}
+.nums span{font-size:7.8pt;color:var(--mut);line-height:1.3;display:block;margin-top:2px}
+.log{width:100%}
+.log td{height:21px;border-bottom:1px solid var(--line)}
+.log th{padding-bottom:4px}
+.foot{position:absolute;left:14mm;right:14mm;bottom:8mm;display:flex;justify-content:space-between;font:500 6.6pt/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.warn{border-left:2px solid var(--acc);padding:2px 0 2px 10px;margin:8px 0 0;font-size:9pt}
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 ================= -->
+<section class="sheet">
+  <div class="top">
+    <h1>AML Lab, <em>presented.</em></h1>
+    <div class="meta">Practice sheet · 7-minute demo<br>21CSE425T — Advanced Machine Learning</div>
+  </div>
+  <p class="pitch">“Every tutorial in our five units, rebuilt as something you can touch. Each algorithm is written from scratch and runs live in this page — so instead of reading an accuracy printed by Colab, you’ll watch the learning happen.”</p>
+
+  <h2>Before you walk in</h2>
+  <div class="cols">
+    <ul class="chk">
+      <li>Double-click <code>Start AML Lab.bat</code> (or open <code>index.html</code>)</li>
+      <li>Browser full-screen, zoom 110 %, projector on “duplicate”</li>
+      <li>Open the home page, press <code>c</code> once to know the Contents index</li>
+    </ul>
+    <ul class="chk">
+      <li>Close the “Briefing” on pages you’ve visited (it re-opens on first visit)</li>
+      <li>Have the next page open in a second tab for T13 — saves 10 s</li>
+      <li>Phone silenced; a printed copy of this sheet beside the keyboard</li>
+    </ul>
+  </div>
+
+  <h2>The seven-minute route</h2>
+  <table>
+    <tr><th>Time</th><th>Chapter</th><th>What you do</th><th>What you say · what they see</th></tr>
+    <tr><td class="t">0:00</td><td class="p"><span>Home</span><b>Contents</b></td>
+      <td class="do">Scroll slowly past Units I–V.</td>
+      <td><span class="say">Five units, fifteen tutorials, three bonus labs from the syllabus.</span> <span class="see">Point at the ribbon: one tick per chapter.</span></td></tr>
+    <tr><td class="t">0:30</td><td class="p"><span>Unit I · T2</span><b>Deep Q-Network</b></td>
+      <td class="do">Open T2 → <b class="k">Train</b>.<br>Talk for ~20 s.<br>Untick <b class="k">replay</b> + <b class="k">target network</b> → <b class="k">Apply &amp; reset</b> → <b class="k">Train</b>.</td>
+      <td><span class="say">DQN = a Q-network plus two stabilisers. Watch what happens without them.</span> <span class="see">Default run climbs to ≈100 steps by episode 100–150 (and can wobble later — that is DQN). Ablated run stays at ≈10 steps.</span></td></tr>
+    <tr><td class="t">1:45</td><td class="p"><span>Unit II · T4</span><b>Graph neural network</b></td>
+      <td class="do"><b class="k">Train</b> (labels on nodes 0 and 33 already set).<br>Switch tool to <b class="k">Inspect</b>, click a leaf node, raise <b class="k">layers</b> to 5.</td>
+      <td><span class="say">Two labelled nodes out of 34 — message passing does the rest.</span> <span class="see">≈97 % of all nodes correct after ~20 epochs. At 5 layers every node’s receptive field is the whole graph.</span></td></tr>
+    <tr><td class="t">2:45</td><td class="p"><span>Unit III · T7</span><b>AdaBoost</b></td>
+      <td class="do">Dataset <b class="k">circles</b> → press <b class="k">Step</b> ×5.<br>Pick <b class="k">xor</b> (depth 1) → <b class="k">Run</b>; then set <b class="k">learner depth</b> = 2.</td>
+      <td><span class="say">Big dots are the points the last stump got wrong — that’s the re-weighting.</span> <span class="see">XOR with stumps stays at ≈50 %: boosted stumps are additive. Depth 2 reaches ≈85 % within 40 rounds.</span></td></tr>
+    <tr><td class="t">3:45</td><td class="p"><span>Unit IV · T10 → T11</span><b>Apriori lattice</b></td>
+      <td class="do">T10: <b class="k">Generate 60 baskets</b>.<br>T11: <b class="k">Run to the end</b>; hover a grey node.</td>
+      <td><span class="say">Support filters, lift tells you if it’s real.</span> <span class="see">Planted rules (coffee→sugar, bread→butter) come back with lift ≈ 2. Lattice: only ~a tenth of the 255 itemsets are ever counted; the badge confirms an exact match with brute force.</span></td></tr>
+    <tr><td class="t">4:45</td><td class="p"><span>Unit V · T13</span><b>Optimiser race</b></td>
+      <td class="do">Landscape <b class="k">Ill-conditioned ravine</b> → <b class="k">Run</b>.<br>Then <b class="k">Rosenbrock</b> → <b class="k">Run</b>.</td>
+      <td><span class="say">Same gradient, six different ideas of what to do with it.</span> <span class="see">Ravine: Momentum/Nesterov overshoot and swing across the valley; Adagrad slows. Rosenbrock: Nesterov flips to “diverged”.</span></td></tr>
+    <tr><td class="t">5:45</td><td class="p"><span>Unit V · T15</span><b>CNN faces</b></td>
+      <td class="do"><b class="k">Train</b> (≈20 s) → <b class="k">Occlusion map</b> → <b class="k">PCA + Random Forest baseline</b> → <b class="k">Run stress test</b>.</td>
+      <td><span class="say">Same faces as T9, learned features instead of eigenfaces.</span> <span class="see">≈96 % vs ≈94 %. Stress test: CNN wins in the dark (≈85 % vs ≈19 %), the forest wins under noise (≈88 % vs ≈51 %) — which is “better” depends on the corruption.</span></td></tr>
+    <tr><td class="t">6:30</td><td class="p"><span>Close</span><b>Takeaway</b></td>
+      <td class="do">Back to Contents.</td>
+      <td><span class="say">One from-scratch engine, eighteen labs; every claim on screen is something you can reproduce by clicking.</span> Invite questions.</td></tr>
+  </table>
+  <div class="foot"><span>AML Lab · presenter’s sheet</span><span>1 / 2</span></div>
+</section>
+
+<!-- ================= PAGE 2 ================= -->
+<section class="sheet">
+  <h2 style="margin-top:0">Likely questions — and honest answers</h2>
+  <div class="q"><b>Why JavaScript and not Python?</b>It runs anywhere with no install, and writing each algorithm from scratch (DQN, GCN, SPARQL, Apriori, a CNN with hand-coded back-prop) shows we understand them. The maths is identical to the notebooks.</div>
+  <div class="q"><b>Is this the same data as the notebooks?</b>Karate Club and the textbook FP-growth example are real. Olivetti faces, Iris and digits need downloads, so they are replaced by generated stand-ins (a 12-person synthetic face gallery, Iris-like samples drawn from the real class means and spreads). Each chapter says so.</div>
+  <div class="q"><b>Does DQN always learn here?</b>No — and that is realistic. The default seed reaches ≈100 steps; other seeds can take longer or stall. The ablation (no replay, no target net) fails on every seed I tried, which is the point.</div>
+  <div class="q"><b>Did deeper GNNs over-smooth?</b>Not dramatically on a 34-node graph: ≈97 % up to 6 layers, ≈94 % at 8. What the page shows is the cause — the receptive field grows until it covers the whole graph; the damage appears on larger graphs and with fewer labels.</div>
+  <div class="q"><b>How do you know back-prop is correct?</b>Gradient checks against finite differences: ≈1e-10 error on the walkthrough network (T14 prints it live); the same check passes for networks with BatchNorm and Dropout.</div>
+  <div class="q"><b>How do you know Apriori and FP-Growth are right?</b>They match an exhaustive search on 900 random databases, and T11/T12 show the equality check on screen. Subgraph enumeration was checked the same way on 1,200 random graphs.</div>
+  <div class="q"><b>Why is the bias–variance demo regression, not classification?</b>Squared loss has a clean additive decomposition; the notebook’s 0-1-loss version is less clean. The page measures it by refitting on 40 fresh datasets.</div>
+
+  <h2>Numbers worth remembering</h2>
+  <div class="nums">
+    <div><strong>≈100 vs ≈10</strong><span>DQN steps per episode by episode 150: with vs without replay + target net (default seed)</span></div>
+    <div><strong>97 %</strong><span>GCN accuracy on all 34 nodes from only 2 labels</span></div>
+    <div><strong>50 % → 85 %</strong><span>XOR with boosted stumps → depth-2 learners, 40 rounds</span></div>
+    <div><strong>0.09 · 0.18 · 0.13</strong><span>T8 at σ = 0.3, depth 6: noise floor · single tree total error · bagged ×25 total error</span></div>
+    <div><strong>94 · 94 · 86 · 84 %</strong><span>T9 averaged over 8 seeds: Random Forest · Bagging · single tree · AdaBoost</span></div>
+    <div><strong>96 % vs 94 %</strong><span>T15 CNN vs T9 PCA + Random Forest on the same faces</span></div>
+  </div>
+
+  <h2>If something goes wrong</h2>
+  <ul class="chk" style="margin-bottom:0">
+    <li>A page looks stuck → press <b>Reset</b> on that page, or reload (everything is deterministic from its seed).</li>
+    <li>Training too slow on the projector laptop → lower <b>train speed</b>, or train before you start talking.</li>
+    <li>A slider “did nothing” → many need <b>Apply &amp; reset</b> or <b>Reset</b> (the label says “needs reset”).</li>
+    <li>Short on time → drop T7 and T15; the T2 → T4 → T13 sequence tells the whole story in four minutes.</li>
+  </ul>
+
+  <h2>Rehearsal log</h2>
+  <table class="log">
+    <tr><th style="width:12mm">Run</th><th style="width:22mm">Total time</th><th>Where I rushed or lost the thread</th><th style="width:38mm">Fix for next time</th></tr>
+    <tr><td>1</td><td></td><td></td><td></td></tr>
+    <tr><td>2</td><td></td><td></td><td></td></tr>
+    <tr><td>3</td><td></td><td></td><td></td></tr>
+  </table>
+  <p class="warn"><b>Target:</b> three clean runs in 6½–7 minutes. On the third run, say each “what you say” line without looking at the sheet.</p>
+  <div class="foot"><span>Keys: <code>c</code> contents · <code>[</code> <code>]</code> previous / next chapter</span><span>2 / 2</span></div>
+</section>
+</body>
+</html>
