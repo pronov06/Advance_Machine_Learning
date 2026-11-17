@@ -4,6 +4,10 @@
   <img src="https://img.shields.io/badge/Python-3.10+-0D1117?style=for-the-badge&logo=python&logoColor=B08D57&labelColor=0D1117&color=B08D57" alt="python" />
   <img src="https://img.shields.io/badge/Colab-Ready-0D1117?style=for-the-badge&logo=googlecolab&logoColor=B08D57&labelColor=0D1117&color=B08D57" alt="colab" />
   <img src="https://img.shields.io/badge/License-Academic-0D1117?style=for-the-badge&labelColor=0D1117&color=B08D57" alt="license" />
+  <br/><br/>
+  <a href="https://pronov06.github.io/Advance_Machine_Learning/">
+    <img src="https://img.shields.io/badge/▶_LIVE_DEMO-pronov06.github.io-0D1117?style=for-the-badge&labelColor=B08D57&color=0D1117" alt="live demo" />
+  </a>
 </p>
 
 <br/>
